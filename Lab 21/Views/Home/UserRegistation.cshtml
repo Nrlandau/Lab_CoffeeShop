@@ -1,0 +1,23 @@
+﻿
+@{
+    ViewBag.Title = "UserRegistation";
+}
+
+<h2>Please fill the form to register</h2>
+<br />
+<form action="/Home/AddUser" method="post" onsubmit="return IsValid()">
+    <label class="control-label">First Name:</label> <input type="text" name="FirstName" class="form-control" id="FirstName" />
+    <div class="Error" id="FirstError"></div>
+    <label class="control-label">Last Name:</label> <input type="text" name="LastName" class="form-control" id="LastName" />
+    <div class="Error" id="LastError"></div>
+    <label class="control-label">Email:</label> <input type="email" name="Email" class="form-control" id="Email" />
+    <div class="Error" id="EmailError"></div>
+    <label class="control-label">Phone Number:</label> <input type="text" name="Phone" class="form-control" id="Phone" />
+    <div class="Error" id="PhoneError"></div>
+    <label class="control-label">Password:</label> <input type="password" name="Password" class="form-control" id="Password" />
+    <div class="Error" id="PassError"></div>
+    <input type="submit" value="Register" class="btn-default" />
+</form>
+
+<script src="/Scripts/UserValidation.js"></script>
+<link rel="stylesheet" type="text/css" href="~/Content/Form.css">
