@@ -1,12 +1,14 @@
 ﻿
 function IsValid()
 {
-    var e = IsValidEmail();
+    var Em = IsValidEmail();
     var Fn = IsValidFirstName();
     var Ln = IsValidLastName();
     var Pass = IsValidPassword();
     var Pn = IsValidPhoneNumber();
-    if (e === true && Fn === true && Ln === true && Pass === true && Pn === true)
+    var CPass = ConfPass();
+    var CEm = ConfEmail();
+    if (Em === true && Fn === true && Ln === true && Pass === true && Pn === true && CPass === true && CEm === true)
     {
         return true;
     }
@@ -39,7 +41,7 @@ function IsValidEmail()
 {
     var email = document.getElementById("Email").value;
     if (!(/^[a-zA-Z]\w{2,}@(([a-zA-Z]{2,})|([A-Za-z0-9_]{2,}\.[a-zA-Z]{2,}))$/.test(email))) {
-        document.getElementById("EmailError").innerHTML = "Email must be ---@-- or --@--.--";
+        document.getElementById("EmailError").innerHTML = "Email must be ---@-- or ---@--.--";
         return false;
     }
     document.getElementById("EmailError").innerHTML = "";
@@ -64,6 +66,26 @@ function IsValidPassword()
     }
     document.getElementById("PassError").innerHTML = "";
     return true;
+}
+function ConfEmail() {
+    var email = document.getElementById("Email").value;
+    var confEmail = document.getElementById("ConfEmail").value;
+    if (email === confEmail) {
+        document.getElementById("EmailMatch").innerHTML = "";
+        return true;
+    }
+    document.getElementById("EmailMatch").innerHTML = "Emails do not match";
+    return false;
+}
+function ConfPass() {
+    var pass = document.getElementById("Password").value;
+    var confPass = document.getElementById("ConfPassword").value;
+    if (pass === confPass) {
+        document.getElementById("PassMatch").innerHTML = "";
+        return true;
+    }
+    document.getElementById("PassMatch").innerHTML = "Password do not match";
+    return false;
 }
 
 function IsValite() {

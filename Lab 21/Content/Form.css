@@ -1,3 +1,6 @@
 ﻿.Error {
     color: red;
 }
+.form-control{
+    display : inline-block;
+}
